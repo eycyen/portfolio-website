@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="[İSMİN] - İletişim">
+    <title>Contact | [İSMİN]</title>
+    <!-- Google Fonts - Pixel Fontlar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <!-- Ana Stil Dosyası -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-name">[İSMİN]</span>
+                    <span class="logo-slogan">[SLOGANIN]</span>
+                </a>
+            </div>
+
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menüyü aç">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <nav class="nav" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="cv.html" class="nav-link">CV</a></li>
+                    <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== ANA İÇERİK ==================== -->
+    <main class="page-main">
+        <!-- Sayfa Başlığı -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">&gt; Contact_</h1>
+                <p class="page-subtitle">Send me a message - Let's connect!</p>
+            </div>
+        </section>
+
+        <!-- İletişim Bölümü -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Sol: İletişim Bilgileri -->
+                    <div class="contact-info">
+                        <h2 class="contact-info-title">// Let's Team Up!</h2>
+                        <p class="contact-info-text">
+                            [İletişim mesajı - İnsanlar sana neden ulaşmalı?
+                            Hangi konularda yardımcı olabilirsin? Projelere açık
+                            mısın?]
+                        </p>
+
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <span class="contact-icon">📧</span>
+                                <div class="contact-detail-content">
+                                    <h3 class="contact-detail-title">E-mail</h3>
+                                    <a href="mailto:[EMAIL]" class="contact-detail-link">
+                                        [EMAIL_ADRESİN]
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <span class="contact-icon">📱</span>
+                                <div class="contact-detail-content">
+                                    <h3 class="contact-detail-title">Phone</h3>
+                                    <a href="tel:[TELEFON]" class="contact-detail-link">
+                                        [TELEFON_NUMARAN]
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <span class="contact-icon">📍</span>
+                                <div class="contact-detail-content">
+                                    <h3 class="contact-detail-title">Location</h3>
+                                    <p class="contact-detail-text">[ŞEHİR, ÜLKE]</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sosyal Medya Linkleri -->
+                        <div class="contact-social">
+                            <h3 class="social-title">// Social</h3>
+                            <div class="social-links">
+                                <a href="[GITHUB_LINK]" target="_blank" rel="noopener noreferrer" class="social-link"
+                                    aria-label="GitHub">
+                                    <span class="social-icon">🐙</span>
+                                </a>
+                                <a href="[LINKEDIN_LINK]" target="_blank" rel="noopener noreferrer" class="social-link"
+                                    aria-label="LinkedIn">
+                                    <span class="social-icon">💼</span>
+                                </a>
+                                <a href="[TWITTER_LINK]" target="_blank" rel="noopener noreferrer" class="social-link"
+                                    aria-label="Twitter">
+                                    <span class="social-icon">🐦</span>
+                                </a>
+                                <a href="[INSTAGRAM_LINK]" target="_blank" rel="noopener noreferrer" class="social-link"
+                                    aria-label="Instagram">
+                                    <span class="social-icon">📷</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sağ: İletişim Formu -->
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" id="contactForm" novalidate>
+                            <h2 class="form-title">// Send Message</h2>
+
+                            <!-- Ad Alanı -->
+                            <div class="form-group">
+                                <label for="name" class="form-label">Your Name *</label>
+                                <input type="text" id="name" name="name" class="form-input"
+                                    placeholder="Enter your name" required>
+                                <span class="form-error" id="nameError"></span>
+                            </div>
+
+                            <!-- E-posta Alanı -->
+                            <div class="form-group">
+                                <label for="email" class="form-label">E-mail *</label>
+                                <input type="email" id="email" name="email" class="form-input"
+                                    placeholder="your@email.com" required>
+                                <span class="form-error" id="emailError"></span>
+                            </div>
+
+                            <!-- Konu Alanı -->
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" id="subject" name="subject" class="form-input"
+                                    placeholder="What's this about?">
+                            </div>
+
+                            <!-- Mesaj Alanı -->
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea id="message" name="message" class="form-input form-textarea"
+                                    placeholder="Write your message here..." rows="5" required></textarea>
+                                <span class="form-error" id="messageError"></span>
+                            </div>
+
+                            <!-- Gönder Butonu -->
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loading">Sending...</span>
+                            </button>
+
+                            <!-- Başarı Mesajı -->
+                            <div class="form-success" id="formSuccess">
+                                <span class="success-icon">✓</span>
+                                <p class="success-text">Message sent! I'll get back to you soon.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p class="footer-text">&copy; 2026 [İSMİN]. Tüm hakları saklıdır.</p>
+            <div class="footer-links">
+                <a href="[GITHUB_LINK]" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+                <a href="[LINKEDIN_LINK]" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

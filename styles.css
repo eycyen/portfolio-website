@@ -1,0 +1,1542 @@
+/* =====================================
+   RETRO 8-BIT PORTFOLYO - ANA STİL
+   =====================================
+   Tema: Pixel Art / Retro Gaming
+   İlham: codedex.io
+   ===================================== */
+
+/* ==================== GOOGLE FONTS - PİXEL FONTLAR ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+/* ==================== CSS DEĞİŞKENLERİ ==================== */
+:root {
+    /* Ana Renk Paleti */
+    --color-bg-dark: #022626;
+    /* Koyu teal - Ana arka plan */
+    --color-bg-medium: #053535;
+    /* Orta koyu */
+    --color-bg-card: #074444;
+    /* Kart arka plan */
+    --color-bg-card-hover: #0a5555;
+    /* Kart hover */
+
+    /* Vurgu Renkleri */
+    --color-accent: #deff85;
+    /* Lime - Ana vurgu */
+    --color-accent-light: #e8ff9f;
+    /* Açık lime */
+    --color-accent-dark: #c4e86b;
+    /* Koyu lime */
+    --color-secondary: #60bf78;
+    /* Yeşil - İkincil vurgu */
+    --color-secondary-light: #7dd493;
+    /* Açık yeşil */
+
+    /* Uyumlu Renkler */
+    --color-neon-green: #deff85;
+    /* Lime (ana) */
+    --color-neon-pink: #7dd493;
+    /* Açık yeşil */
+    --color-neon-cyan: #60bf78;
+    /* Yeşil */
+    --color-neon-yellow: #e8ff9f;
+    /* Açık lime */
+    --color-neon-purple: #4da868;
+    /* Koyu yeşil */
+
+    /* Metin Renkleri */
+    --color-text-primary: #f5fff5;
+    /* Beyaz-yeşilimsi */
+    --color-text-secondary: #a8d4b0;
+    /* Açık yeşil-gri */
+    --color-text-muted: #5a8a65;
+    /* Koyu yeşil-gri */
+
+    /* Durum Renkleri */
+    --color-success: #60bf78;
+    /* Yeşil */
+    --color-error: #ff7b7b;
+    /* Kırmızı */
+
+    /* Pixel Border */
+    --pixel-border: 4px solid;
+    --pixel-shadow: 4px 4px 0px;
+
+    /* Geçişler */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.25s ease;
+
+    /* Boşluklar */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+
+    /* Container */
+    --container-max: 1100px;
+    --container-padding: 1.5rem;
+}
+
+
+/* ==================== RESET & GENEL STİLLER ==================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Retro scanlines efekti */
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.3) 2px,
+            rgba(0, 0, 0, 0.3) 4px);
+    background-attachment: fixed;
+}
+
+/* CRT TV efekti (opsiyonel) */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 9999;
+}
+
+/* Seçim rengi */
+::selection {
+    background-color: var(--color-neon-green);
+    color: var(--color-bg-dark);
+}
+
+/* Link stilleri */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    image-rendering: pixelated;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* ==================== CONTAINER ==================== */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* ==================== HEADER ==================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--color-bg-dark);
+    border-bottom: var(--pixel-border) var(--color-neon-green);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+/* Logo - Pixel Style */
+.logo a {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.logo-name {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    color: var(--color-neon-green);
+    text-shadow: 2px 2px 0 var(--color-neon-pink);
+    letter-spacing: 1px;
+}
+
+.logo-slogan {
+    font-family: 'VT323', monospace;
+    font-size: 0.9rem;
+    color: var(--color-neon-cyan);
+}
+
+/* Navigasyon - Pixel Style */
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.nav-link {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 2px solid transparent;
+    transition: all var(--transition-fast);
+    text-transform: uppercase;
+}
+
+.nav-link:hover {
+    color: var(--color-neon-green);
+    text-shadow: 0 0 10px var(--color-neon-green);
+}
+
+.nav-link.active {
+    color: var(--color-bg-dark);
+    background: var(--color-neon-green);
+    border-color: var(--color-neon-green);
+}
+
+/* Hamburger Menü - Pixel Style */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 4px;
+    background: var(--color-neon-green);
+    transition: all var(--transition-normal);
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* ==================== HERO SECTION ==================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 80px;
+    background:
+        linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-medium) 100%);
+}
+
+/* Pixel Stars Background */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hero-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, var(--color-neon-green), transparent),
+        radial-gradient(2px 2px at 40px 70px, var(--color-neon-cyan), transparent),
+        radial-gradient(2px 2px at 50px 160px, var(--color-neon-pink), transparent),
+        radial-gradient(2px 2px at 90px 40px, var(--color-neon-yellow), transparent),
+        radial-gradient(2px 2px at 130px 80px, var(--color-neon-green), transparent),
+        radial-gradient(2px 2px at 160px 120px, var(--color-neon-purple), transparent);
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-greeting {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    color: var(--color-neon-cyan);
+    margin-bottom: var(--spacing-xs);
+}
+
+.hero-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.4;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-neon-green);
+    text-shadow:
+        3px 3px 0 var(--color-neon-pink),
+        6px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 1.75rem;
+    color: var(--color-neon-yellow);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-description {
+    font-size: 1.4rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Pixel Art Character Placeholder */
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-shape {
+    width: 250px;
+    height: 250px;
+    background: var(--color-bg-card);
+    border: var(--pixel-border) var(--color-neon-green);
+    box-shadow: var(--pixel-shadow) var(--color-neon-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Scroll göstergesi */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 1s infinite;
+}
+
+.scroll-arrow {
+    display: block;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    color: var(--color-neon-green);
+}
+
+.scroll-arrow::after {
+    content: '▼';
+    display: block;
+    text-align: center;
+    animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+/* ==================== BUTONLAR - PIXEL STYLE ==================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    border: var(--pixel-border) currentColor;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.btn-primary {
+    background: var(--color-neon-green);
+    color: var(--color-bg-dark);
+    border-color: var(--color-neon-green);
+    box-shadow: var(--pixel-shadow) var(--color-neon-pink);
+}
+
+.btn-primary:hover {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--color-neon-cyan);
+    border-color: var(--color-neon-cyan);
+    box-shadow: var(--pixel-shadow) var(--color-neon-purple);
+}
+
+.btn-secondary:hover {
+    background: var(--color-neon-cyan);
+    color: var(--color-bg-dark);
+    transform: translate(4px, 4px);
+    box-shadow: none;
+}
+
+/* ==================== ÖZET BÖLÜMÜ ==================== */
+.summary-section {
+    padding: var(--spacing-xxl) 0;
+    background: var(--color-bg-medium);
+    border-top: var(--pixel-border) var(--color-neon-pink);
+    border-bottom: var(--pixel-border) var(--color-neon-pink);
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.summary-card {
+    background: var(--color-bg-card);
+    padding: var(--spacing-lg);
+    border: var(--pixel-border) var(--color-neon-cyan);
+    box-shadow: var(--pixel-shadow) var(--color-neon-cyan);
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.summary-card:hover {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+    border-color: var(--color-neon-green);
+}
+
+.summary-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.summary-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    color: var(--color-neon-yellow);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+.summary-text {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* ==================== SAYFA HERO (İÇ SAYFALAR) ==================== */
+.page-main {
+    padding-top: 80px;
+}
+
+.page-hero {
+    padding: var(--spacing-xxl) 0;
+    background: var(--color-bg-medium);
+    text-align: center;
+    border-bottom: var(--pixel-border) var(--color-neon-green);
+}
+
+.page-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-neon-green);
+    text-shadow: 3px 3px 0 var(--color-neon-pink);
+}
+
+.page-subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    color: var(--color-neon-cyan);
+}
+
+/* ==================== CV SAYFASI ==================== */
+.cv-section {
+    padding: var(--spacing-xxl) 0;
+}
+
+.cv-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: var(--spacing-xl);
+}
+
+/* CV Sidebar */
+.cv-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.cv-card {
+    background: var(--color-bg-card);
+    padding: var(--spacing-lg);
+    border: var(--pixel-border) var(--color-neon-cyan);
+    box-shadow: var(--pixel-shadow) var(--color-neon-cyan);
+}
+
+.cv-card-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.65rem;
+    color: var(--color-neon-yellow);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px dashed var(--color-neon-yellow);
+    line-height: 1.6;
+}
+
+/* Bilgi Listesi */
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.info-icon {
+    font-size: 1.25rem;
+}
+
+.info-text {
+    font-family: 'VT323', monospace;
+    color: var(--color-text-secondary);
+    font-size: 1.2rem;
+}
+
+/* Yetenek Barları - Pixel Style */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xs);
+}
+
+.skill-name {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+}
+
+.skill-percent {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: var(--color-neon-green);
+}
+
+.skill-bar {
+    height: 16px;
+    background: var(--color-bg-dark);
+    border: 2px solid var(--color-text-secondary);
+}
+
+.skill-progress {
+    height: 100%;
+    background: repeating-linear-gradient(90deg,
+            var(--color-neon-green) 0px,
+            var(--color-neon-green) 8px,
+            transparent 8px,
+            transparent 12px);
+    transition: width 1s steps(20);
+}
+
+/* Dil Listesi */
+.language-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.language-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs) 0;
+    border-bottom: 2px dashed var(--color-bg-dark);
+}
+
+.language-name {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+}
+
+.language-level {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.45rem;
+    color: var(--color-neon-cyan);
+}
+
+/* Timeline - Pixel Style */
+.cv-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.timeline-section {
+    background: var(--color-bg-card);
+    padding: var(--spacing-lg);
+    border: var(--pixel-border) var(--color-neon-pink);
+    box-shadow: var(--pixel-shadow) var(--color-neon-pink);
+}
+
+.timeline-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    color: var(--color-neon-green);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+}
+
+.timeline-icon {
+    font-size: 1.5rem;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: repeating-linear-gradient(180deg,
+            var(--color-neon-green) 0px,
+            var(--color-neon-green) 8px,
+            transparent 8px,
+            transparent 16px);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: var(--spacing-lg);
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -22px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: var(--color-neon-pink);
+    border: 2px solid var(--color-bg-dark);
+}
+
+.timeline-content {
+    background: var(--color-bg-dark);
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-neon-cyan);
+    transition: all var(--transition-fast);
+}
+
+.timeline-content:hover {
+    border-color: var(--color-neon-green);
+    transform: translateX(8px);
+}
+
+.timeline-date {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: var(--color-neon-yellow);
+    margin-bottom: var(--spacing-xs);
+    display: block;
+}
+
+.timeline-heading {
+    font-family: 'VT323', monospace;
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-neon-green);
+}
+
+.timeline-place {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: var(--color-neon-cyan);
+    margin-bottom: var(--spacing-xs);
+}
+
+.timeline-desc {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+/* Sertifikalar Grid */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.certificate-card {
+    background: var(--color-bg-dark);
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-neon-yellow);
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.certificate-card:hover {
+    background: var(--color-neon-yellow);
+    color: var(--color-bg-dark);
+}
+
+.certificate-icon {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xs);
+    display: block;
+}
+
+.certificate-name {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.certificate-issuer {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.4rem;
+    color: var(--color-text-secondary);
+}
+
+.certificate-card:hover .certificate-issuer {
+    color: var(--color-bg-dark);
+}
+
+/* ==================== PROJELER SAYFASI ==================== */
+.projects-section {
+    padding: var(--spacing-xxl) 0;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xxl);
+}
+
+.project-card {
+    background: var(--color-bg-card);
+    border: var(--pixel-border) var(--color-neon-purple);
+    box-shadow: var(--pixel-shadow) var(--color-neon-purple);
+    overflow: hidden;
+    transition: all var(--transition-fast);
+}
+
+.project-card:hover {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+    border-color: var(--color-neon-green);
+}
+
+.project-image {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+}
+
+.project-placeholder {
+    width: 100%;
+    height: 100%;
+    background:
+        repeating-linear-gradient(45deg,
+            var(--color-bg-dark) 0px,
+            var(--color-bg-dark) 10px,
+            var(--color-bg-medium) 10px,
+            var(--color-bg-medium) 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid var(--color-neon-purple);
+}
+
+.project-emoji {
+    font-size: 4rem;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13, 13, 13, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.project-link-btn {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    padding: 12px 16px;
+    background: var(--color-neon-green);
+    color: var(--color-bg-dark);
+    border: 2px solid var(--color-neon-green);
+    transition: all var(--transition-fast);
+}
+
+.project-link-btn:hover {
+    background: transparent;
+    color: var(--color-neon-green);
+}
+
+.project-content {
+    padding: var(--spacing-md);
+}
+
+.project-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.65rem;
+    color: var(--color-neon-yellow);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+.project-description {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.project-tag {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.4rem;
+    padding: 6px 10px;
+    background: var(--color-bg-dark);
+    color: var(--color-neon-cyan);
+    border: 1px solid var(--color-neon-cyan);
+}
+
+/* Projeler CTA */
+.projects-cta {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--color-bg-card);
+    border: var(--pixel-border) var(--color-neon-green);
+    box-shadow: var(--pixel-shadow) var(--color-neon-green);
+}
+
+.cta-text {
+    font-family: 'VT323', monospace;
+    font-size: 1.4rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+/* ==================== HAKKIMDA SAYFASI ==================== */
+.about-section {
+    padding: var(--spacing-xxl) 0;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    color: var(--color-neon-green);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+}
+
+.title-icon {
+    font-size: 1.5rem;
+}
+
+/* Biyografi */
+.about-bio {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xxl);
+    align-items: start;
+}
+
+.bio-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.bio-text p {
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+.bio-text strong {
+    color: var(--color-neon-green);
+}
+
+.bio-image-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--color-bg-card);
+    border: var(--pixel-border) var(--color-neon-pink);
+    box-shadow: var(--pixel-shadow) var(--color-neon-pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bio-emoji {
+    font-size: 5rem;
+}
+
+/* Hobiler */
+.about-hobbies {
+    margin-bottom: var(--spacing-xxl);
+}
+
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.hobby-card {
+    background: var(--color-bg-card);
+    padding: var(--spacing-lg);
+    border: var(--pixel-border) var(--color-neon-cyan);
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.hobby-card:hover {
+    transform: translate(4px, 4px);
+    border-color: var(--color-neon-yellow);
+}
+
+.hobby-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.hobby-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.55rem;
+    color: var(--color-neon-yellow);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+.hobby-desc {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+/* Kişisel Değerler */
+.about-values {
+    margin-bottom: var(--spacing-xxl);
+}
+
+.values-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.value-item {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+    background: var(--color-bg-card);
+    padding: var(--spacing-lg);
+    border: 2px solid var(--color-neon-purple);
+    transition: all var(--transition-fast);
+}
+
+.value-item:hover {
+    border-color: var(--color-neon-green);
+    transform: translateX(8px);
+}
+
+.value-number {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    color: var(--color-neon-pink);
+    min-width: 60px;
+}
+
+.value-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    color: var(--color-neon-yellow);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.6;
+}
+
+.value-desc {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Alıntı */
+.about-quote {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--color-bg-card);
+    border: var(--pixel-border) var(--color-neon-green);
+    box-shadow: var(--pixel-shadow) var(--color-neon-green);
+}
+
+.quote-text {
+    font-family: 'VT323', monospace;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-primary);
+}
+
+.quote-author {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    color: var(--color-neon-pink);
+}
+
+/* ==================== İLETİŞİM SAYFASI ==================== */
+.contact-section {
+    padding: var(--spacing-xxl) 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+}
+
+/* İletişim Bilgileri */
+.contact-info {
+    padding: var(--spacing-lg);
+}
+
+.contact-info-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    color: var(--color-neon-green);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.contact-info-text {
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xl);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.contact-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+}
+
+.contact-icon {
+    font-size: 2rem;
+}
+
+.contact-detail-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.45rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-detail-link,
+.contact-detail-text {
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    color: var(--color-neon-cyan);
+    transition: color var(--transition-fast);
+}
+
+.contact-detail-link:hover {
+    color: var(--color-neon-green);
+    text-shadow: 0 0 10px var(--color-neon-green);
+}
+
+/* Sosyal Medya */
+.social-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-neon-yellow);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.social-link {
+    width: 50px;
+    height: 50px;
+    background: var(--color-bg-card);
+    border: 2px solid var(--color-neon-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+    background: var(--color-neon-cyan);
+    transform: translate(2px, 2px);
+}
+
+.social-icon {
+    font-size: 1.5rem;
+}
+
+/* İletişim Formu */
+.contact-form-wrapper {
+    background: var(--color-bg-card);
+    padding: var(--spacing-xl);
+    border: var(--pixel-border) var(--color-neon-pink);
+    box-shadow: var(--pixel-shadow) var(--color-neon-pink);
+}
+
+.form-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    color: var(--color-neon-green);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-label {
+    display: block;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-neon-yellow);
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--color-bg-dark);
+    border: 2px solid var(--color-text-muted);
+    color: var(--color-text-primary);
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    transition: all var(--transition-fast);
+}
+
+.form-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-neon-green);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+}
+
+.form-input.error {
+    border-color: var(--color-error);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-error {
+    display: block;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.4rem;
+    color: var(--color-error);
+    margin-top: var(--spacing-xs);
+    min-height: 16px;
+}
+
+/* Gönder Butonu */
+.btn-submit {
+    width: 100%;
+    margin-top: var(--spacing-sm);
+}
+
+.btn-submit .btn-loading {
+    display: none;
+}
+
+.btn-submit.loading .btn-text {
+    display: none;
+}
+
+.btn-submit.loading .btn-loading {
+    display: inline;
+}
+
+/* Başarı Mesajı */
+.form-success {
+    display: none;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: rgba(57, 255, 20, 0.1);
+    border: 2px solid var(--color-success);
+    margin-top: var(--spacing-md);
+}
+
+.form-success.show {
+    display: flex;
+}
+
+.success-icon {
+    font-size: 1.5rem;
+    color: var(--color-success);
+}
+
+.success-text {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: var(--color-success);
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background: var(--color-bg-dark);
+    padding: var(--spacing-lg) 0;
+    border-top: var(--pixel-border) var(--color-neon-green);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-text {
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.footer-link {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    color: var(--color-neon-cyan);
+    transition: all var(--transition-fast);
+}
+
+.footer-link:hover {
+    color: var(--color-neon-green);
+    text-shadow: 0 0 10px var(--color-neon-green);
+}
+
+/* ==================== RESPONSIVE TASARIM ==================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        display: none;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cv-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cv-sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .certificates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-bio {
+        grid-template-columns: 1fr;
+    }
+
+    .about-bio-image {
+        order: -1;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    .hobbies-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+    .header-content {
+        height: 70px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--color-bg-dark);
+        border-top: var(--pixel-border) var(--color-neon-green);
+        transform: translateX(100%);
+        transition: transform var(--transition-normal);
+        padding: var(--spacing-xl);
+    }
+
+    .nav.active {
+        transform: translateX(0);
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        align-items: flex-start;
+    }
+
+    .nav-link {
+        font-size: 0.7rem;
+    }
+
+    .hero {
+        padding: var(--spacing-xxl) 0;
+        min-height: auto;
+    }
+
+    .hero-title {
+        font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .summary-grid,
+    .cv-sidebar,
+    .certificates-grid,
+    .projects-grid,
+    .hobbies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .value-item {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+}
+
+/* Küçük Mobil */
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 1rem;
+    }
+
+    .logo-slogan {
+        display: none;
+    }
+
+    .page-title {
+        font-size: 1rem;
+    }
+}
