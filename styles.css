@@ -308,6 +308,7 @@ button {
 }
 
 .hero-content {
+    padding-top: 20px;
     position: relative;
     z-index: 1;
     display: grid;
@@ -1240,7 +1241,7 @@ button {
 }
 
 .social-icon {
-    font-size: 1.5rem;
+    font-size: 1.0rem;
 }
 
 /* İletişim Formu */
